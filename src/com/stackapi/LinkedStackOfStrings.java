@@ -6,7 +6,7 @@ package com.stackapi;
  * 40 Byte per Node: 16 bytes object, 8 bytes inner class overhead, 8 bytes for first node
  * reference and 8 byte for new node reference
  */
-public class LinkedStackOfStrings {
+public class LinkedStackOfStrings<T> {
 
     private Node first = null;
 
@@ -15,7 +15,7 @@ public class LinkedStackOfStrings {
      */
     private class Node {
 
-        String item;
+        T item;
         Node next;
 
     }
@@ -24,7 +24,7 @@ public class LinkedStackOfStrings {
         return first == null;
     }
 
-    public void push(String item) {
+    public void push(T item) {
 
         Node oldFirst = first;
         first = new Node();
@@ -33,9 +33,9 @@ public class LinkedStackOfStrings {
 
     }
 
-    public String pop() {
+    public T pop() {
 
-        String item = first.item;
+        T item = first.item;
         first = first.next;
         return item;
 
