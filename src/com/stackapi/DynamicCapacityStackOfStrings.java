@@ -5,13 +5,13 @@ package com.stackapi;
  * Resizing implementation of stack using arrays.
  * Invariant: array always full between 25% - 75%
  */
-public class DynamicCapacityStackOfStrings {
+public class DynamicCapacityStackOfStrings<T> {
 
-    private String[] s;
+    private T[] s;
     private int N = 0;
 
     public DynamicCapacityStackOfStrings() {
-        s = new String[1];
+        s = (T[]) new Object[1];
     }
 
     public boolean isEmpty() {
@@ -19,7 +19,7 @@ public class DynamicCapacityStackOfStrings {
     }
 
     //push element at s[n] and increment n
-    public void push(String item) {
+    public void push(T item) {
 
         if(N == s.length){
             resize(2 * s.length);
@@ -28,11 +28,11 @@ public class DynamicCapacityStackOfStrings {
     }
 
     // pop s[n-1] element
-    public String pop() {
+    public T pop() {
         if(N == 0){
             throw new IndexOutOfBoundsException();
         }
-        String item = s[--N];
+        T item = s[--N];
         if(N > 0 && N == s.length/4){
             resize(s.length/2);
         }
@@ -43,7 +43,7 @@ public class DynamicCapacityStackOfStrings {
     //Resize the array to double size
     private void resize(int capacity){
 
-        String [] copy = new String[capacity];
+        T [] copy = (T[]) new Object[capacity];
         for(int i = 0; i < N; i++){
             copy[i] = s[i];
         }
