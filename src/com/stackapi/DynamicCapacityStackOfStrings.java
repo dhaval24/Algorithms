@@ -1,11 +1,14 @@
 package com.stackapi;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * Created by Dhaval on 6/13/2016.
  * Resizing implementation of stack using arrays.
  * Invariant: array always full between 25% - 75%
  */
-public class DynamicCapacityStackOfStrings<T> {
+public class DynamicCapacityStackOfStrings<T> implements Iterable<T>{
 
     private T[] s;
     private int N = 0;
@@ -48,5 +51,35 @@ public class DynamicCapacityStackOfStrings<T> {
             copy[i] = s[i];
         }
         s = copy;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ArrayIterator();
+    }
+
+    private class ArrayIterator implements Iterator<T>{
+
+        private int i = N;
+
+        @Override
+        public boolean hasNext() {
+            return i > 0;
+        }
+
+        @Override
+        public T next() throws NoSuchElementException{
+
+            if(!hasNext()){
+                throw new NoSuchElementException();
+            }
+
+            return s[--i];
+        }
+
+        @Override
+        public void remove() throws UnsupportedOperationException{
+
+        }
     }
 }

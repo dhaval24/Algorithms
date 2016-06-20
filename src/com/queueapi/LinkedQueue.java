@@ -1,12 +1,46 @@
 package com.queueapi;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * Created by Dhaval on 6/15/2016.
  */
-public class LinkedQueue<T> {
+public class LinkedQueue<T> implements Iterable<T> {
 
     private Node first = null;
     private Node last = null;
+
+    @Override
+    public Iterator<T> iterator() {
+        return new LinkQueueIterator();
+    }
+
+    private class LinkQueueIterator implements Iterator<T>{
+
+        private Node current = first;
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() throws NoSuchElementException{
+            if(!hasNext()){
+                throw new NoSuchElementException();
+            }
+
+            T item = current.item;
+            current = current.next;
+            return item;
+        }
+
+        @Override
+        public void remove() throws UnsupportedOperationException{
+
+        }
+    }
 
     private class Node {
 
