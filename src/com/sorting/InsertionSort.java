@@ -15,7 +15,7 @@ public class InsertionSort {
             for(int j = i; j > 0; j--) {
 
                 if(less(a[j], a[j-1])){ // put a[j] to its correct position
-                    exch(a, i, j);
+                    exch(a, j, j-1);
                 }
                 else{
                     break;

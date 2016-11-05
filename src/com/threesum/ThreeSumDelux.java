@@ -20,9 +20,10 @@ public class ThreeSumDelux {
         for (int i = 0; i < length; i++) {
             for (int j = i + 1; j < length; j++) {
                 int k = Arrays.binarySearch(A, -(A[i] + A[j]));
+                System.out.println(k);
                 // A[i] < A[j] < A[k] to avoid double counting ( -20, 10, 10)
-                if ((k >= 0) && (A[i] < A[j]) && (A[j] < A[k])) {
-                    System.out.println(A[i] + "  " + A[j] + "  " + A[k]);
+                if ((k >= 0) && (i < j) && (j  < k)) {
+                    System.out.println("======"+A[i] + "  " + A[j] + "  " + A[k]);
                     count++;
                 }
             }

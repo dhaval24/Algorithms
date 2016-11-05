@@ -11,7 +11,7 @@ public class FileSorter {
 
         File directory = new File(args[0]);
         File[] files = directory.listFiles();
-        //.sort(files);
+        RecurrsiveMergeSort.sort(files);
         for(int i = 0; i < files.length; i++){
             System.out.println(files[i].getName());
         }
