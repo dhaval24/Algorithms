@@ -28,7 +28,7 @@ public class BST<Key extends Comparable<Key>, Value> implements Iterable<Key>{
     }
 
     private Node put(Node x, Key key, Value value) {
-        if (x == null) return null;
+        if (x == null) return new Node(key, value);
         int cmp = key.compareTo(x.key);
         if (cmp < 0) {
             x.left = put(x.left, key, value);

@@ -18,6 +18,28 @@ public class Digraph {
         }
     }
 
+    public int V() {
+        return V;
+    }
+
+    private int E() {
+        int count = 0;
+        for (int i = 0; i < V(); i++) {
+            count += adj[i].size();
+        }
+        return count/2;
+    }
+
+    public Digraph reverse() {
+        Digraph reverse = new Digraph(V);
+        for (int v = 0; v < V; v++) {
+            for (int w : adj(v)) {
+                reverse.addEdge(w, v);
+            }
+        }
+        return reverse;
+    }
+
     public void addEdge(int v, int w) {
         adj[v].add(w);
     }

@@ -56,7 +56,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
         while(2 *k <= N) { // if the element at current index is less than their children promote the strongest children
             int j = 2 * k; //left child
             if(j < N && less(j, j+1)) j++; //find largest child
-            if(!less(k,j)) break; // parent is not less than the largest child
+            if(!less(k,j) ) break; // parent is not less than the largest child
             exch(k,j); // exchange parent with largest child
             k = j; //continue at new position
         }

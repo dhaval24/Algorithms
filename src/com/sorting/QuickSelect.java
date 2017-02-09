@@ -6,8 +6,8 @@ import java.util.Arrays;
 
 /**
  * Created by Dhaval on 10/13/2016.
- * This algorithm is used to find the Kth largest element in the
- * list and the same algorithm can be modified to find kth smallest. We just need to supply
+ * This algorithm is used to find the Kth smallest element in the
+ * list and the same algorithm can be modified to find kth largest. We just need to supply
  * because it essentially means (n-k)th largest element
  *
  *
@@ -61,7 +61,7 @@ public class QuickSelect {
     }
 
     public static void main(String[] args) {
-        System.out.println(new QuickSelect().findKLargest(new Integer[]{10, 7, 11, 2 , 16, 8, 0}, 3));
+        System.out.println(new QuickSelect().findKLargest(new Integer[]{2,1}, 0));
     }
 
 }

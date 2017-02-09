@@ -16,6 +16,7 @@ public class BreadhFirstSearch {
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         this.s = s;
+        bfs(G, s);
     }
 
     private void bfs(Graph G, int s) {

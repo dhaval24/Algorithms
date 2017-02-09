@@ -1,5 +1,7 @@
 package com.graph;
 
+import java.util.Stack;
+
 /**
  * Created by Dhaval on 11/1/2016.
  */
@@ -28,6 +30,22 @@ public class DepthFirstSearch {
                 edgeTo[w] = v;
             }
         }
+    }
+
+    //returns true if there is a path from given source vertex to given vertex
+    public boolean hasPathTo(int v) {
+        return marked[v];
+    }
+
+    //Returns path from source node to given vertex if there is a path available.
+    public Iterable<Integer> pathTo(int v) {
+        if (!hasPathTo(v)) return null;
+        Stack<Integer> stack = new Stack<>();
+        for (int i = v; i != s; i = edgeTo[i]) {
+            stack.push(i);
+        }
+        stack.push(s);
+        return stack;
     }
 
     public boolean[] getMarked() {

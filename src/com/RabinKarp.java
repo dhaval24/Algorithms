@@ -25,7 +25,6 @@ public class RabinKarp {
         }
         return -1;
 
-
     }
 
     private long createHash(String s, int startIndex, int endIndex, int prime) {

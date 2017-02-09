@@ -27,6 +27,10 @@ public class CC {
         return id[v];
     }
 
+    public boolean connected(int v, int w) {
+        return id[v] == id[w];
+    }
+
     public void dfs(Graph G, int v) {
         marked[v]  = true;
         id[v] = count;
